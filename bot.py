@@ -259,7 +259,7 @@ def zbsn(nome):
 def iq_callback(query):
    data = query.data
    if data == ('get-USD'):
-       bot.delete_message(nome.chat.id, nome.message_id)            
+       bot.delete_message(nome.chat.id, message.message_id)            
                       
 
 @bot.message_handler(commands=['cpf'])
