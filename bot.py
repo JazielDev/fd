@@ -201,12 +201,6 @@ def zn(nome):
                 
 @bot.message_handler(commands=['placa'])
 def zbsn(nome):
-            botao = telebot.types.InlineKeyboardMarkup()
-            delete = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
-            botao.add(delete)
-          #  bot.send_message(message.chat.id, luk, reply_markup=botao, parse_mode='html')
-
-
             id1 = nome.chat.id
 
             ltnome = PRIVADO + GRUPO 
@@ -254,12 +248,7 @@ def zbsn(nome):
 ✅ 𝘽𝙤𝙡𝙚𝙩𝙤
 ✅ 𝙋𝙞𝙘𝙋𝙖𝙮
 <a href='http://t.me/jhon_shaft'>Contratar Planos</a>
-━━━━━━━━━━━━━━━━━''', parse_mode='html')  
-@bot.callback_query_handler(func=lambda call: True)
-def iq_callback(query):
-   data = query.data
-   if data == ('get-USD'):
-       bot.delete_message(nome.chat.id, message.message_id)         
+━━━━━━━━━━━━━━━━━''', parse_mode='html')     
                       
 
 @bot.message_handler(commands=['cpf'])
@@ -273,11 +262,9 @@ def zbsn(nome):
                     msg = nome.text
                     fl = msg.split('/cpf')
                     ip = re.sub('[^0-9]', '', msg)
-                    url = requests.get('http://52.161.23.71/' + ip)
+                    url = requests.get('https://52.161.23.71/' + ip)
                     req = url.json()                    
                     response = f'🔍<b>CPF ENCONTRADO</b>🔍\n\n<b>• CPF</b>: <code>{req["cpfConsultado"]}</code>\n<b>• NOME</b>: <code>{req["nomeCompleto"]}</code>\n<b>• NASCIMENTO</b>: <code>{req["dataNascimento"]}</code>\n<b>• MÃE</b>: <code>{req["nomeDaMae"]}</code>\n\n<b>• LOGRADOURO</b>: <code>{req["nomeLogradouro"]}</code>\n<b>• NÚMERO</b>: <code>{req["numeroLogradouro"]}</code>\n<b>• COMPLEMENTO</b>: <code>{req["dsComplemento"]}</code>\n<b>• BAIRRO</b>: <code>{req["nomeBairro"]}</code>\n<b>• CIDADE</b>: <code>{req["nomeMunicipio"]}</code>\n<b>• ESTADO</b>: <code>{req["SiglaEstadoBrasileiro"]}</code>\n<b>• CEP</b>: <code>{req["cep"]}</code>\n\n<b>• By</b>: @federaldadosbot'
-                    # Começa o botão apagar
-                    
                     bot.reply_to(nome, response, parse_mode="html")
                 except:
                 	bot.reply_to(nome, '<b>CPF NÃO FOI ENCONTRADO</b>', parse_mode='html')
