@@ -264,12 +264,8 @@ def zbsn(nome):
                     req = url.json()                    
                     response = f'🔍<b>CPF ENCONTRADO</b>🔍\n\n<b>• CPF</b>: <code>{req["cpfConsultado"]}</code>\n<b>• NOME</b>: <code>{req["nomeCompleto"]}</code>\n<b>• NASCIMENTO</b>: <code>{req["dataNascimento"]}</code>\n<b>• MÃE</b>: <code>{req["nomeDaMae"]}</code>\n\n<b>• LOGRADOURO</b>: <code>{req["nomeLogradouro"]}</code>\n<b>• NÚMERO</b>: <code>{req["numeroLogradouro"]}</code>\n<b>• COMPLEMENTO</b>: <code>{req["dsComplemento"]}</code>\n<b>• BAIRRO</b>: <code>{req["nomeBairro"]}</code>\n<b>• CIDADE</b>: <code>{req["nomeMunicipio"]}</code>\n<b>• ESTADO</b>: <code>{req["SiglaEstadoBrasileiro"]}</code>\n<b>• CEP</b>: <code>{req["cep"]}</code>\n\n<b>• By</b>: @federaldadosbot'
                     # Começa o botão apagar
-                    botao = telebot.types.InlineKeyboardMarkup()
-                    delete = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
-                    botao.add(delete)  
-                    silva = bot.reply_to(nome, response, parse_mode="html")
-                    bot.send_message(nome.chat.id, silva, reply_markup=botao, parse_mode='html')
-                    #bot.reply_to(nome, response, parse_mode="html")
+                    
+                    bot.reply_to(nome, response, parse_mode="html")
                 except:
                 	bot.reply_to(nome, '<b>CPF NÃO FOI ENCONTRADO</b>', parse_mode='html')
             else:
