@@ -272,7 +272,7 @@ def zbsn(nome):
                     @bot.callback_query_handler(func=lambda call: True)
                     def iq_callback(query):
                        data = query.data
-                          if data == ('get-USD'):
+                       if data == ('get-USD'):
                             bot.delete_message(message.chat.id, message.message_id)
                             #bot.reply_to(nome, response, parse_mode="html")
                             except:
