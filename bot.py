@@ -411,12 +411,12 @@ def help_command(message):
 
 @bot.message_handler(commands=['teste'])
 def command(message):
-  oik = ('Consulta de CPF
+  oik = ('''Consulta de CPF
          CPF: 000000
          Nome: Luke mak det
          Endereço: lupo alt, 1576.
          Complemento: N/D
-         ')
+         ''')
   keyboard = telebot.types.InlineKeyboardMarkup()
   keyboard.row(
       telebot.types.InlineKeyboardButton('Teste1', callback_data='get-USD')
