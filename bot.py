@@ -412,8 +412,6 @@ def help_command(message):
 @bot.message_handler(commands=['teste'])
 def command(message):
 
-  bot.send_message(message.chat.id, 'Delete essa MSG com o Botão', parse_mode='html')
-
   keyboard = telebot.types.InlineKeyboardMarkup()
   keyboard.row(
       telebot.types.InlineKeyboardButton('Teste1', callback_data='get-USD')
@@ -424,6 +422,7 @@ def command(message):
   )
 
   bot.send_message(message.chat.id, 'Click no Botão:', reply_markup=keyboard, parse_mode='html')
+  bot.send_message(message.chat.id, 'Delete essa MSG com o Botão', parse_mode='html')
 
 @bot.callback_query_handler(func=lambda call: True)
 def iq_callback(query):
