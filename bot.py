@@ -435,7 +435,11 @@ def get_ex_callback(query):
 def send_exchange_result(message, USD):
    bot.send_chat_action(message.chat.id, 'typing')
    bot.send_message(message.chat.id, 'Teste 1 OK', parse_mode='html')
-   bot.delete_message(*bot.last_message_sent)
+   bot.delete_message(chat_id = message.chat_id,
+   message_id = message.message_id,
+   * args, **
+   kwargs)
+   #bot.delete_message(*bot.last_message_sent)
 
 #Duplicação do botão
 
