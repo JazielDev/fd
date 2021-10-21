@@ -301,11 +301,6 @@ def zbsn(nome):
 <a href='http://t.me/jhon_shaft'>Contratar Planos</a>
 ━━━━━━━━━━━━━━━━━''', parse_mode='html')
                      
-@bot.callback_query_handler(func=lambda call: True)
-def iq_callback(query):
-   data = query.data
-   if data == ('get-USD'):
-       bot.delete_message(message.chat.id, message.message_id)
 
 @bot.message_handler(commands=['tel'])
 def zbsn(nome):
