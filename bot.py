@@ -435,22 +435,23 @@ def get_ex_callback(query):
 def send_exchange_result(message, USD):
    bot.send_chat_action(message.chat.id, 'typing')
    bot.send_message(message.chat.id, 'Teste 1 OK', parse_mode='html')
+   bot.delete_message(*bot.last_message_sent)
 
 #Duplicação do botão
 
-@bot.callback_query_handler(func=lambda ca: True)
-def ab_callback(query):
-   data = query.data
-   if data.startswith('get-'):
-       get_ee_callback(query)
+# @bot.callback_query_handler(func=lambda ca: True)
+# def ab_callback(query):
+#    data = query.data
+#    if data.startswith('get-'):
+#        get_ee_callback(query)
 
-def get_ee_callback(query):
-   bot.answer_callback_query(query.id)
-   send_aa_result(query.message, query.data[4:])
+# def get_ee_callback(query):
+#    bot.answer_callback_query(query.id)
+#    send_aa_result(query.message, query.data[4:])
 
-def send_aa_result(message, EUR):
-   bot.send_chat_action(message.chat.id, 'typing')
-   bot.send_message(message.chat.id, 'Teste 2 OK', parse_mode='html')
+# def send_aa_result(message, EUR):
+#    bot.send_chat_action(message.chat.id, 'typing')
+#    bot.send_message(message.chat.id, 'Teste 2 OK', parse_mode='html')
 
                         
 bot.polling()
