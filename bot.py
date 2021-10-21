@@ -411,6 +411,9 @@ def help_command(message):
 
 @bot.message_handler(commands=['teste'])
 def command(message):
+
+  bot.send_message(message.chat.id, 'Delete essa MSG com o Botão', parse_mode='html')
+
   keyboard = telebot.types.InlineKeyboardMarkup()
   keyboard.row(
       telebot.types.InlineKeyboardButton('Teste1', callback_data='get-USD')
@@ -433,9 +436,8 @@ def get_ex_callback(query):
    send_exchange_result(query.message, query.data[4:])
 
 def send_exchange_result(message, USD):
-   bot.send_chat_action(message.chat.id, 'typing')
-   bot.send_message(message.chat.id, 'Teste 1 OK', parse_mode='html')
-   bot.send_message(message.chat.id, 'Apaga o de cima', parse_mode='html')
+#    bot.send_chat_action(message.chat.id, 'typing')
+#    bot.send_message(message.chat.id, 'Teste 1 OK', parse_mode='html')
    bot.delete_message(message.chat.id, message.message_id)
 
 #Duplicação do botão
