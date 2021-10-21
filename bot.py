@@ -455,7 +455,8 @@ Endereço: lupo alt, 1576.
 Complemento: N/D''')
 
   botao = telebot.types.InlineKeyboardMarkup()
-  botao = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
+  delete = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
+  botao.add(delete)
   
   bot.send_message(message.chat.id, luk, reply_markup=botao, parse_mode='html')
 
