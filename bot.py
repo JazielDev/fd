@@ -201,6 +201,12 @@ def zn(nome):
                 
 @bot.message_handler(commands=['placa'])
 def zbsn(nome):
+            botao = telebot.types.InlineKeyboardMarkup()
+            delete = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
+            botao.add(delete)
+          #  bot.send_message(message.chat.id, luk, reply_markup=botao, parse_mode='html')
+
+
             id1 = nome.chat.id
 
             ltnome = PRIVADO + GRUPO 
@@ -213,7 +219,8 @@ def zbsn(nome):
                     url = requests.get("https://apicarros.com/v1/consulta/" + ipp + ip + "/json", verify=False)
                     req = url.json()
                     response = f'🔍<b>PLACA ENCONTRADA</b>🔍\n\n<b>• PLACA</b>: <code>{req["placa"]}</code>\n<b>• ANO</b>: <code>{req["ano"]}</code>\n<b>• CHASSI</b>: <code>{req["chassi"]}</code>\n<b>• COR</b>: <code>{req["cor"]}</code>\n<b>• DATA</b>: <code>{req["data"]}</code>\n<b>• ALERME</b>: <code>{req["dataAtualizacaoAlarme"]}</code>\n<b>• VEICULO</b>: <code>{req["dataAtualizacaoCaracteristicasVeiculo"]}</code>\n<b>• ROUBO/FURTO</b>: <code>{req["dataAtualizacaoRouboFurto"]}</code>\n<b>• MARCA</b>: <code>{req["marca"]}</code>\n<b>• MODELO</b>: <code>{req["modelo"]}</code>\n<b>• MUNICÍPIO</b>: <code>{req["municipio"]}</code>\n<b>• UF</b>: <code>{req["uf"]}</code>\n<b>• SITUAÇÃO</b>: <code>{req["situacao"]}</code>\n\n<b>• By</b>: @federaldadosbot'
-                    bot.reply_to(nome, response, parse_mode="html")
+                    bot.reply_to(nome.chat.id, response, reply_markup=botao, parse_mode='html')
+                    #bot.reply_to(nome, response, parse_mode="html") 
                 except:
                 	bot.reply_to(nome, '<b>PLACA NÃO FOI ENCONTRADA</b>', parse_mode='html')
             else:
@@ -247,7 +254,13 @@ def zbsn(nome):
 ✅ 𝘽𝙤𝙡𝙚𝙩𝙤
 ✅ 𝙋𝙞𝙘𝙋𝙖𝙮
 <a href='http://t.me/jhon_shaft'>Contratar Planos</a>
-━━━━━━━━━━━━━━━━━''', parse_mode='html')   	
+━━━━━━━━━━━━━━━━━''', parse_mode='html')  
+@bot.callback_query_handler(func=lambda call: True)
+def iq_callback(query):
+   data = query.data
+   if data == ('get-USD'):
+       bot.delete_message(message.chat.id, message.message_id)            
+                      
 
 @bot.message_handler(commands=['cpf'])
 def zbsn(nome):
