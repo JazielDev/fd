@@ -456,7 +456,7 @@ def command(message):
 # Nome: Luke mak det
 # Endereço: lupo alt, 1576.
 # Complemento: N/D''')
-  msg = nome.text
+  msg = message.text
   fl = msg.split('/placa')
   ipp = re.sub('[^A-Z]', '', msg)
   ip = re.sub('[^0-9]', '', msg)
