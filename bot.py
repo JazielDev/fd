@@ -261,23 +261,17 @@ def zbsn(nome):
                     fl = msg.split('/cpf')
                     ip = re.sub('[^0-9]', '', msg)
                     url = requests.get('http://52.161.23.71/' + ip)
-                    req = url.json()
-                    #Começa o botão apagar
+                    req = url.json()                    
                     response = f'🔍<b>CPF ENCONTRADO</b>🔍\n\n<b>• CPF</b>: <code>{req["cpfConsultado"]}</code>\n<b>• NOME</b>: <code>{req["nomeCompleto"]}</code>\n<b>• NASCIMENTO</b>: <code>{req["dataNascimento"]}</code>\n<b>• MÃE</b>: <code>{req["nomeDaMae"]}</code>\n\n<b>• LOGRADOURO</b>: <code>{req["nomeLogradouro"]}</code>\n<b>• NÚMERO</b>: <code>{req["numeroLogradouro"]}</code>\n<b>• COMPLEMENTO</b>: <code>{req["dsComplemento"]}</code>\n<b>• BAIRRO</b>: <code>{req["nomeBairro"]}</code>\n<b>• CIDADE</b>: <code>{req["nomeMunicipio"]}</code>\n<b>• ESTADO</b>: <code>{req["SiglaEstadoBrasileiro"]}</code>\n<b>• CEP</b>: <code>{req["cep"]}</code>\n\n<b>• By</b>: @federaldadosbot'
+                    # Começa o botão apagar
                     botao = telebot.types.InlineKeyboardMarkup()
                     delete = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
                     botao.add(delete)  
-                    bot.send_message(nome.chat.id, response, reply_markup=botao, parse_mode='html')
-                        
-                    @bot.callback_query_handler(func=lambda call: True)
-                    def iq_callback(query):
-                       data = query.data
-                       if data == ('get-USD'):
-                            bot.delete_message(message.chat.id, message.message_id)
-                            #bot.reply_to(nome, response, parse_mode="html")
-                            except:
-                	     bot.reply_to(nome, '<b>CPF NÃO FOI ENCONTRADO</b>', parse_mode='html')
-                            else:
+                    bot.reply_to(nome.chat.id, response, reply_markup=botao, parse_mode='html')
+                    #bot.reply_to(nome, response, parse_mode="html")
+                except:
+                	bot.reply_to(nome, '<b>CPF NÃO FOI ENCONTRADO</b>', parse_mode='html')
+            else:
                 		bot.reply_to(nome, '''𝘾𝙊𝙈𝙋𝙍𝙀 𝙅𝘼 𝙊 𝙎𝙀𝙐 𝘼𝘾𝙀𝙎𝙎𝙊 𝘼𝙊 𝙉𝙊𝙎𝙎𝙊 𝘽𝙊𝙏
 🔍 ⚡️「Federal Dados」⚡️ 🔎
 ━━━━━━━━━━━━━━━━━
@@ -309,6 +303,12 @@ def zbsn(nome):
 ✅ 𝙋𝙞𝙘𝙋𝙖𝙮
 <a href='http://t.me/jhon_shaft'>Contratar Planos</a>
 ━━━━━━━━━━━━━━━━━''', parse_mode='html')
+                     
+@bot.callback_query_handler(func=lambda call: True)
+def iq_callback(query):
+   data = query.data
+   if data == ('get-USD'):
+       bot.delete_message(message.chat.id, message.message_id)
 
 @bot.message_handler(commands=['tel'])
 def zbsn(nome):
