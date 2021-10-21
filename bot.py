@@ -268,15 +268,16 @@ def zbsn(nome):
                     delete = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
                     botao.add(delete)  
                     bot.send_message(nome.chat.id, response, reply_markup=botao, parse_mode='html')
-@bot.callback_query_handler(func=lambda call: True)
-def iq_callback(query):
-   data = query.data
-   if data == ('get-USD'):
-       bot.delete_message(message.chat.id, message.message_id)
-                        bot.reply_to(nome, response, parse_mode="html")
-                except:
-                	bot.reply_to(nome, '<b>CPF NÃO FOI ENCONTRADO</b>', parse_mode='html')
-            else:
+                        
+                    @bot.callback_query_handler(func=lambda call: True)
+                    def iq_callback(query):
+                       data = query.data
+                          if data == ('get-USD'):
+                            bot.delete_message(message.chat.id, message.message_id)
+                            #bot.reply_to(nome, response, parse_mode="html")
+                            except:
+                	     bot.reply_to(nome, '<b>CPF NÃO FOI ENCONTRADO</b>', parse_mode='html')
+                            else:
                 		bot.reply_to(nome, '''𝘾𝙊𝙈𝙋𝙍𝙀 𝙅𝘼 𝙊 𝙎𝙀𝙐 𝘼𝘾𝙀𝙎𝙎𝙊 𝘼𝙊 𝙉𝙊𝙎𝙎𝙊 𝘽𝙊𝙏
 🔍 ⚡️「Federal Dados」⚡️ 🔎
 ━━━━━━━━━━━━━━━━━
