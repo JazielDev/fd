@@ -411,7 +411,7 @@ def help_command(message):
 
 @bot.message_handler(commands=['teste'])
 def command(message):
-oik = ('excluir')
+  oik = ('excluir')
   keyboard = telebot.types.InlineKeyboardMarkup()
   keyboard.row(
       telebot.types.InlineKeyboardButton('Teste1', callback_data='get-USD')
