@@ -411,7 +411,12 @@ def help_command(message):
 
 @bot.message_handler(commands=['teste'])
 def command(message):
-  oik = ('excluir')
+  oik = ('Consulta de CPF
+         CPF: 000000
+         Nome: Luke mak det
+         Endereço: lupo alt, 1576.
+         Complemento: N/D
+         ')
   keyboard = telebot.types.InlineKeyboardMarkup()
   keyboard.row(
       telebot.types.InlineKeyboardButton('Teste1', callback_data='get-USD')
@@ -420,9 +425,9 @@ def command(message):
     telebot.types.InlineKeyboardButton('Teste2', callback_data='get-EUR'),
     #telebot.types.InlineKeyboardButton('Teste3', callback_data='get-RUR')
   )
-  bot.send_message(message.chat.id, 'Delete essa MSG com o Botão 1', parse_mode='html')
-  bot.send_message(message.chat.id, 'Click no Botão:', reply_markup=keyboard, parse_mode='html')
-  bot.send_message(message.chat.id, 'Delete essa MSG com o Botão 2', parse_mode='html')
+  
+  #bot.send_message(message.chat.id, 'Click no Botão:', reply_markup=keyboard, parse_mode='html')
+  bot.send_message(message.chat.id, oik, reply_markup=keyboard, parse_mode='html')
 
 @bot.callback_query_handler(func=lambda call: True)
 def iq_callback(query):
