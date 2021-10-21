@@ -267,7 +267,8 @@ def zbsn(nome):
                     botao = telebot.types.InlineKeyboardMarkup()
                     delete = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
                     botao.add(delete)  
-                    bot.reply_to(nome.chat.id, response, reply_markup=botao, parse_mode='html')
+                    silva = bot.reply_to(nome, response, parse_mode="html")
+                    bot.send_message(nome.chat.id, silva, reply_markup=botao, parse_mode='html')
                     #bot.reply_to(nome, response, parse_mode="html")
                 except:
                 	bot.reply_to(nome, '<b>CPF NÃO FOI ENCONTRADO</b>', parse_mode='html')
