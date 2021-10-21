@@ -446,19 +446,31 @@ def send_exchange_result(message, USD):
 
 #Duplicação do botão
 
-# @bot.callback_query_handler(func=lambda ca: True)
-# def ab_callback(query):
-#    data = query.data
-#    if data.startswith('get-'):
-#        get_ee_callback(query)
+@bot.message_handler(commands=['vps'])
+def command(message):
+  luk = ('''Consulta de CPF
+CPF: 000000
+Nome: Luke mak det
+Endereço: lupo alt, 1576.
+Complemento: N/D''')
 
-# def get_ee_callback(query):
+botao = telebot.types.InlineKeyboardMarkup()
+  botao = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
+  
+  bot.send_message(message.chat.id, luk, reply_markup=botao, parse_mode='html')
+
+@bot.callback_query_handler(func=lambda call: True)
+def iq_callback(query):
+   data = query.data
+   if data == ('get-USD'):
+       bot.delete_message(message.chat.id, message.message_id)
+#        get_ex_callback(query)
+
+# def get_ex_callback(query):
 #    bot.answer_callback_query(query.id)
-#    send_aa_result(query.message, query.data[4:])
+#    send_exchange_result(query.message, query.data[4:])
 
-# def send_aa_result(message, EUR):
-#    bot.send_chat_action(message.chat.id, 'typing')
-#    bot.send_message(message.chat.id, 'Teste 2 OK', parse_mode='html')
-
+# def send_exchange_result(message, USD):
+#    bot.delete_message(message.chat.id, message.message_id)
                         
 bot.polling()
