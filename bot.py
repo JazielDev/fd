@@ -454,7 +454,7 @@ Nome: Luke mak det
 Endereço: lupo alt, 1576.
 Complemento: N/D''')
 
-botao = telebot.types.InlineKeyboardMarkup()
+  botao = telebot.types.InlineKeyboardMarkup()
   botao = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
   
   bot.send_message(message.chat.id, luk, reply_markup=botao, parse_mode='html')
