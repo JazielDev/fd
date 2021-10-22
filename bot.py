@@ -457,8 +457,7 @@ def command(message):
 # Endereço: lupo alt, 1576.
 # Complemento: N/D''')
   
-  id1 = message.chat.id
-
+            id1 = message.chat.id
             ltnome = PRIVADO + GRUPO 
             if id1 in ltnome:
                 try:
