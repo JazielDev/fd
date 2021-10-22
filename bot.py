@@ -469,13 +469,13 @@ def command(message):
                     req = url.json()
                     luk = f'🔍<b>PLACA ENCONTRADA</b>🔍\n\n<b>• PLACA</b>: <code>{req["placa"]}</code>\n<b>• ANO</b>: <code>{req["ano"]}</code>\n<b>• CHASSI</b>: <code>{req["chassi"]}</code>\n<b>• COR</b>: <code>{req["cor"]}</code>\n<b>• DATA</b>: <code>{req["data"]}</code>\n<b>• ALERME</b>: <code>{req["dataAtualizacaoAlarme"]}</code>\n<b>• VEICULO</b>: <code>{req["dataAtualizacaoCaracteristicasVeiculo"]}</code>\n<b>• ROUBO/FURTO</b>: <code>{req["dataAtualizacaoRouboFurto"]}</code>\n<b>• MARCA</b>: <code>{req["marca"]}</code>\n<b>• MODELO</b>: <code>{req["modelo"]}</code>\n<b>• MUNICÍPIO</b>: <code>{req["municipio"]}</code>\n<b>• UF</b>: <code>{req["uf"]}</code>\n<b>• SITUAÇÃO</b>: <code>{req["situacao"]}</code>\n\n<b>• By</b>: @federaldadosbot'
                     bot.reply_to(message, luk, parse_mode="html")
- bot.reply_to(message, luk, parse_mode="html")
+                    
 
-  botao = telebot.types.InlineKeyboardMarkup()
-  delete = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
-  botao.add(delete)
+                    botao = telebot.types.InlineKeyboardMarkup()
+                    delete = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
+                    botao.add(delete)
   
-  bot.send_message(message.chat.id, luk, reply_markup=botao, parse_mode='html')
+                    bot.send_message(message.chat.id, luk, reply_markup=botao, parse_mode='html')
 
 @bot.callback_query_handler(func=lambda call: True)
 def iq_callback(query):
