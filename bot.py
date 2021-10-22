@@ -456,14 +456,21 @@ def command(message):
 # Nome: Luke mak det
 # Endereço: lupo alt, 1576.
 # Complemento: N/D''')
-  msg = message.text
-  fl = msg.split('/placa')
-  ipp = re.sub('[^A-Z]', '', msg)
-  ip = re.sub('[^0-9]', '', msg)
-  url = requests.get("https://apicarros.com/v1/consulta/" + ipp + ip + "/json", verify=False)
-  req = url.json()
-  luk = f'🔍<b>PLACA ENCONTRADA</b>🔍\n\n<b>• PLACA</b>: <code>{req["placa"]}</code>\n<b>• ANO</b>: <code>{req["ano"]}</code>\n<b>• CHASSI</b>: <code>{req["chassi"]}</code>\n<b>• COR</b>: <code>{req["cor"]}</code>\n<b>• DATA</b>: <code>{req["data"]}</code>\n<b>• ALERME</b>: <code>{req["dataAtualizacaoAlarme"]}</code>\n<b>• VEICULO</b>: <code>{req["dataAtualizacaoCaracteristicasVeiculo"]}</code>\n<b>• ROUBO/FURTO</b>: <code>{req["dataAtualizacaoRouboFurto"]}</code>\n<b>• MARCA</b>: <code>{req["marca"]}</code>\n<b>• MODELO</b>: <code>{req["modelo"]}</code>\n<b>• MUNICÍPIO</b>: <code>{req["municipio"]}</code>\n<b>• UF</b>: <code>{req["uf"]}</code>\n<b>• SITUAÇÃO</b>: <code>{req["situacao"]}</code>\n\n<b>• By</b>: @federaldadosbot'
-  bot.reply_to(message, luk, parse_mode="html")
+  
+  id1 = message.chat.id
+
+            ltnome = PRIVADO + GRUPO 
+            if id1 in ltnome:
+                try:
+                    msg = message.text
+                    fl = msg.split('/placa')
+                    ipp = re.sub('[^A-Z]', '', msg)
+                    ip = re.sub('[^0-9]', '', msg)
+                    url = requests.get("https://apicarros.com/v1/consulta/" + ipp + ip + "/json", verify=False)
+                    req = url.json()
+                    luk = f'🔍<b>PLACA ENCONTRADA</b>🔍\n\n<b>• PLACA</b>: <code>{req["placa"]}</code>\n<b>• ANO</b>: <code>{req["ano"]}</code>\n<b>• CHASSI</b>: <code>{req["chassi"]}</code>\n<b>• COR</b>: <code>{req["cor"]}</code>\n<b>• DATA</b>: <code>{req["data"]}</code>\n<b>• ALERME</b>: <code>{req["dataAtualizacaoAlarme"]}</code>\n<b>• VEICULO</b>: <code>{req["dataAtualizacaoCaracteristicasVeiculo"]}</code>\n<b>• ROUBO/FURTO</b>: <code>{req["dataAtualizacaoRouboFurto"]}</code>\n<b>• MARCA</b>: <code>{req["marca"]}</code>\n<b>• MODELO</b>: <code>{req["modelo"]}</code>\n<b>• MUNICÍPIO</b>: <code>{req["municipio"]}</code>\n<b>• UF</b>: <code>{req["uf"]}</code>\n<b>• SITUAÇÃO</b>: <code>{req["situacao"]}</code>\n\n<b>• By</b>: @federaldadosbot'
+                    bot.reply_to(message, luk, parse_mode="html")
+ bot.reply_to(message, luk, parse_mode="html")
 
   botao = telebot.types.InlineKeyboardMarkup()
   delete = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
@@ -476,6 +483,54 @@ def iq_callback(query):
    data = query.data
    if data == ('get-USD'):
       bot.delete_message(message.chat.id, message.message_id)
+                    
+                
+            else:
+                		bot.reply_to(message, '''𝘾𝙊𝙈𝙋𝙍𝙀 𝙅𝘼 𝙊 𝙎𝙀𝙐 𝘼𝘾𝙀𝙎𝙎𝙊 𝘼𝙊 𝙉𝙊𝙎𝙎𝙊 𝘽𝙊𝙏
+🔍 ⚡️「Federal Dados」⚡️ 🔎
+━━━━━━━━━━━━━━━━━
+𝙊 𝘽𝙊𝙏 𝙏𝙀𝙈:
+✅ 𝘾𝙊𝙉𝙎𝙐𝙇𝙏𝘼 𝘿𝙀 𝘾𝙋𝙁
+✅ 𝘾𝙊𝙉𝙎𝙐𝙇𝙏𝘼 𝘿𝙀 𝘾𝙉𝙋𝙅
+✅ 𝘾𝙊𝙉𝙎𝙐𝙇𝙏𝘼 𝘿𝙀 𝙉𝙐𝙈𝙀𝙍𝙊
+✅ 𝘾𝙊𝙉𝙎𝙐𝙇𝙏𝘼 𝘿𝙀 𝙉𝙊𝙈𝙀
+✅ 𝘾𝙊𝙉𝙎𝙐𝙇𝙏𝘼 𝘿𝙀 𝙑𝙄𝙕𝙄𝙉𝙃𝙊𝙎
+✅ 𝘾𝙊𝙉𝙎𝙐𝙇𝙏𝘼 𝘿𝙀 𝙋𝘼𝙍𝙀𝙉𝙏𝙀𝙎
+✅ 𝘾𝙊𝙉𝙎𝙐𝙇𝙏𝘼 𝘿𝙀 𝙋𝙇𝘼𝘾𝘼
+✅ 𝘾𝙊𝙉𝙎𝙐𝙇𝙏𝘼 𝘿𝙀 𝘽𝙄𝙉
+━━━━━━━━━━━━━━━━━
+⚠️ 𝙍𝙀𝙏𝙊𝙍𝙉𝘼 𝙏𝙊𝘿𝙊𝙎 𝙊𝙎 𝘿𝘼𝘿𝙊𝙎 ⚠️
+🚨 𝙐𝙎𝙊 𝙄𝙇𝙄𝙈𝙄𝙏𝘼𝘿𝙊 PV 𝘿𝙊 𝘽𝙊𝙏 🚨
+━━━━━━━━━━━━━━━━━
+𝙑𝘼𝙇𝙊𝙍𝙀𝙎:
+• 1 𝙎𝙀𝙈𝘼𝙉𝘼 = R$10
+• 2 𝙎𝙀𝙈𝘼𝙉𝘼𝙎 = R$19
+• 1 MÊS = R$29
+𝙋𝘼𝙍𝘼 𝙎𝙀𝙐 𝙂𝙍𝙐𝙋𝙊:
+• 15 𝘿𝙄𝘼𝙎 = R$28
+• 31 𝘿𝙄𝘼𝙎 = R$35
+━━━━━━━━━━━━━━━━━
+💲 𝙁𝙊𝙍𝙈𝘼𝙎 𝘿𝙀 𝙋𝘼𝙂𝘼𝙈𝙀𝙉𝙏𝙊𝙎 💲
+✅ 𝙋𝙞𝙭
+✅ 𝘾𝙧𝙞𝙥𝙩𝙤𝙢𝙤𝙚𝙙𝙖𝙨
+✅ 𝘽𝙤𝙡𝙚𝙩𝙤
+✅ 𝙋𝙞𝙘𝙋𝙖𝙮
+<a href='http://t.me/jhon_shaft'>Contratar Planos</a>
+━━━━━━━━━━━━━━━━━''', parse_mode='html')
+            
+#   bot.reply_to(message, luk, parse_mode="html")
+
+#   botao = telebot.types.InlineKeyboardMarkup()
+#   delete = telebot.types.InlineKeyboardButton('Apagar', callback_data='get-USD')
+#   botao.add(delete)
+  
+#   bot.send_message(message.chat.id, luk, reply_markup=botao, parse_mode='html')
+
+# @bot.callback_query_handler(func=lambda call: True)
+# def iq_callback(query):
+#    data = query.data
+#    if data == ('get-USD'):
+#       bot.delete_message(message.chat.id, message.message_id)
 
                         
 bot.polling()
